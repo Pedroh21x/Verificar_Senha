@@ -78,4 +78,13 @@ class AppTest {
                 "A senha deve conter pelo menos um caractere especial"
         ));
     }
+
+    @Test
+    void deveAceitarSenhaQueAtendeTodosOsRequisitos() {
+        ResultadoValidacao resultado =
+                ValidadorSenha.validar("Abcdef12!");
+
+        assertTrue(resultado.isValida());
+        assertTrue(resultado.getErros().isEmpty());
+    }
 }
